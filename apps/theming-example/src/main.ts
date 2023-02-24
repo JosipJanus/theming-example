@@ -1,11 +1,28 @@
+import { APP_INITIALIZER } from '@angular/core';
 import { bootstrapApplication } from '@angular/platform-browser';
-import {
-  provideRouter,
-  withEnabledBlockingInitialNavigation,
-} from '@angular/router';
 import { AppComponent } from './app/app.component';
-import { appRoutes } from './app/app.routes';
+import { LOCAL_STORAGE } from './app/injection-tokens/injection-tokens';
+import { ThemeService } from './app/theme.service';
+
+function initalizeTheme(themeService: ThemeService): () => Promise<void> {
+  return async () => {
+    themeService.initalizeTheme();
+    return Promise.resolve();
+  };
+}
 
 bootstrapApplication(AppComponent, {
-  providers: [provideRouter(appRoutes, withEnabledBlockingInitialNavigation())],
+  providers: [
+    ThemeService,
+    {
+      provide: LOCAL_STORAGE,
+      useValue: localStorage,
+    },
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initalizeTheme,
+      multi: true,
+      deps: [ThemeService],
+    },
+  ],
 }).catch((err) => console.error(err));

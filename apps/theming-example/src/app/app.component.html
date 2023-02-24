@@ -1,2 +1,13 @@
-<theming-example-nx-welcome></theming-example-nx-welcome>
-<router-outlet></router-outlet>
+<div class="theme-togglers">
+  <button (click)="switchTheme('theme-light')">Light theme</button>
+  <br />
+  <button (click)="switchTheme('theme-dimmed')">Dimmed theme</button>
+  <br />
+  <button (click)="switchTheme('theme-dark')">Dark theme</button>
+  <br />
+</div>
+<div class="content">
+  <h2>Example text for theming via css custom properties</h2>
+  <h3>Example button</h3>
+  <button example-button>Themed button</button>
+</div>

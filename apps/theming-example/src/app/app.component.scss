@@ -1,0 +1,16 @@
+:host {
+  position: relative;
+  display: block;
+  padding: 24px;
+
+  .theme-togglers {
+    margin-bottom: 8px;
+  }
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    background-color: var(--background-color);
+    color: var(--color);
+  }
+}

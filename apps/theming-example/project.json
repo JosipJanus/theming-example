@@ -20,6 +20,9 @@
           "apps/theming-example/src/assets"
         ],
         "styles": ["apps/theming-example/src/styles.scss"],
+        "stylePreprocessorOptions": {
+          "includePaths": ["libs/themable-components/src/lib/themes"]
+        },
         "scripts": []
       },
       "configurations": {

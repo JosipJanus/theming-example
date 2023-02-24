@@ -1,1 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
+@import './libs/themable-components/src/themes';
+
+:root {
+  @include light-theme;
+
+  &.theme-dimmed {
+    @include dimmed-theme;
+  }
+
+  &.theme-dark {
+    @include dark-theme;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+
+  background-color: var(--background-color);
+  color: var(--color);
+}
